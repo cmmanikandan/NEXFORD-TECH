@@ -1,0 +1,110 @@
+.estimator-widget {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), var(--shadow-md);
+}
+
+.estimator-header {
+  margin-bottom: 24px;
+}
+
+.estimator-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-dark-navy);
+  margin-bottom: 8px;
+}
+
+.estimator-desc {
+  font-size: 14.5px;
+  color: var(--color-secondary-text);
+}
+
+.estimator-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.estimator-tab-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-very-light-blue);
+  color: var(--color-secondary-text);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.estimator-tab-btn:hover {
+  border-color: var(--color-primary-blue);
+  color: var(--color-primary-blue);
+}
+
+.estimator-tab-btn.active {
+  background: var(--color-white);
+  color: var(--color-primary-blue);
+  border-color: var(--color-primary-blue);
+  box-shadow: 0 4px 14px rgba(7, 137, 232, 0.16);
+}
+
+.estimator-details-card {
+  background: var(--color-very-light-blue);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.estimator-metrics {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.metric-item-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-secondary-text);
+  margin-bottom: 4px;
+}
+
+.metric-item-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-dark-navy);
+}
+
+.deliverables-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.deliverable-item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--color-main-text);
+}
+
+@media (max-width: 768px) {
+  .estimator-details-card {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,105 @@
+.work-page {
+  width: 100%;
+}
+
+.work-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-secondary-text);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary-blue);
+  color: var(--color-primary-blue);
+}
+
+.filter-btn.active {
+  background: var(--color-primary-blue);
+  color: #FFFFFF;
+  border-color: var(--color-primary-blue);
+  box-shadow: 0 4px 12px rgba(7, 137, 232, 0.25);
+}
+
+/* Production Impact Strip */
+.work-impact-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 32px;
+  margin-top: 36px;
+  box-shadow: var(--shadow-sm);
+}
+
+.work-impact-col {
+  text-align: center;
+}
+
+.work-impact-val {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-dark-navy);
+  margin-bottom: 4px;
+}
+
+.work-impact-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-secondary-text);
+}
+
+.work-impact-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--color-border);
+}
+
+@media (max-width: 768px) {
+  .work-impact-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .work-impact-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .work-filter-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .work-filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-btn {
+    flex-shrink: 0;
+  }
+  .work-impact-strip {
+    padding: 20px 16px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+

@@ -1,0 +1,107 @@
+/* Brand Wordmark & Logo Component */
+.brand-logo-component {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  max-width: 190px;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo-component:hover {
+  transform: scale(1.02);
+}
+
+.brand-symbol-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-text-lockup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Primary Wordmark: NEX (Deep Navy) + FORD (Brand Blue) */
+.brand-wordmark {
+  font-family: var(--font-brand);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: baseline;
+}
+
+.wordmark-nex {
+  color: #071A33;
+}
+
+.wordmark-ford {
+  color: #0789E8;
+}
+
+/* Sub-label: TECHNOLOGIES with subtle horizontal accent lines */
+.brand-sub-lockup {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+}
+
+.brand-sub-line {
+  height: 1px;
+  flex: 1;
+  background-color: #0789E8;
+  opacity: 0.8;
+}
+
+.brand-sub-text {
+  font-family: var(--font-brand);
+  font-size: 8px;
+  font-weight: 500;
+  color: #071A33;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding-left: 0.25em; /* Compensate for letter-spacing */
+}
+
+/* Dark Mode Variant (for Footer & Dark Hero/CTA) */
+.brand-logo-component.theme-dark .wordmark-nex {
+  color: #FFFFFF;
+}
+
+.brand-logo-component.theme-dark .wordmark-ford {
+  color: #0789E8;
+}
+
+.brand-logo-component.theme-dark .brand-sub-text {
+  color: #B7C5D6;
+}
+
+.brand-logo-component.theme-dark .brand-sub-line {
+  background-color: #0789E8;
+  opacity: 0.9;
+}
+
+/* Mobile responsive sizing (125-155px total logo width) */
+@media (max-width: 768px) {
+  .brand-logo-component {
+    max-width: 155px;
+    gap: 10px;
+  }
+  .brand-symbol-img {
+    height: 32px;
+  }
+  .brand-wordmark {
+    font-size: 17px;
+  }
+  .brand-sub-text {
+    font-size: 7px;
+    letter-spacing: 0.22em;
+  }
+}

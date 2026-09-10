@@ -1,0 +1,180 @@
+.service-card {
+  background: #FFFFFF;
+  border: 1px solid #DCE7F3;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(7, 26, 51, 0.04);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--service-accent, #0789E8);
+  box-shadow: 0 16px 36px rgba(7, 26, 51, 0.09), 0 0 0 1px rgba(7, 137, 232, 0.15);
+}
+
+/* 3D Service Visual Preview - Flush with top, left, and right (No Space) */
+.service-card-image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  height: auto;
+  min-height: 200px;
+  overflow: hidden;
+  background: #F4F8FC;
+  border-bottom: 1px solid #E2ECF7;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: block;
+}
+
+.service-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.service-card:hover .service-card-img {
+  transform: scale(1.04);
+}
+
+/* Card Body with comfortable padding */
+.service-card-body {
+  padding: 24px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Card Top: Icon & Clean Index */
+.service-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.service-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #F5FAFF;
+  border: 1px solid #DCE7F5;
+  color: var(--service-accent, var(--color-primary-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.service-card:hover .service-icon-box {
+  background: var(--service-accent, var(--color-primary-blue));
+  color: #FFFFFF;
+  border-color: var(--service-accent, var(--color-primary-blue));
+}
+
+.service-index {
+  font-size: 13px;
+  font-weight: 700;
+  color: #7A8EAA;
+  letter-spacing: 0.05em;
+  background: #F5FAFF;
+  border: 1px solid #E2ECF7;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Content */
+.service-card-content {
+  margin-bottom: 20px;
+}
+
+.service-card-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--color-dark-navy);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.service-card-desc {
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: var(--color-secondary-text);
+  min-height: 48px;
+}
+
+/* Features Block */
+.service-features-block {
+  padding-top: 18px;
+  border-top: 1px solid #EDF3F9;
+  margin-bottom: 22px;
+  flex: 1;
+}
+
+.service-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #1E334D;
+  font-weight: 500;
+}
+
+.feature-check-wrapper {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #EBF4FE;
+  color: var(--color-primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Card Bottom */
+.service-card-bottom {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #EDF3F9;
+}
+
+.service-learn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-primary-blue);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.service-arrow-icon {
+  transition: transform var(--transition-fast);
+}
+
+.service-card:hover .service-learn-link {
+  color: var(--color-deep-blue);
+}
+
+.service-card:hover .service-arrow-icon {
+  transform: translateX(4px);
+}
