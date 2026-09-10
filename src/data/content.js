@@ -263,6 +263,33 @@ export const PROJECTS = [
       ],
       highlight: { title: "SCALABLE FOUNDATION", text: "Build a digital foundation that can evolve as the business grows." }
     },
+    screenshots: [
+      {
+        src: "/projects/qubink/1.jpeg",
+        title: "Mobile Home & Fast Ingestion",
+        desc: "Touch-optimized landing view providing instant access to document upload, preset print specs, and order tracking."
+      },
+      {
+        src: "/projects/qubink/2.jpeg",
+        title: "Dynamic Print Configurator",
+        desc: "Responsive configuration controls for color/BW, paper thickness, binding styles, and instant cost calculation."
+      },
+      {
+        src: "/projects/qubink/3.jpeg",
+        title: "File Preflight & Layout Validation",
+        desc: "Real-time document review verifying page counts, resolution warnings, and border safety margins."
+      },
+      {
+        src: "/projects/qubink/4.jpeg",
+        title: "Mobile Checkout & Delivery Options",
+        desc: "Frictionless payment summary with direct digital receipts and local pickup or courier delivery selection."
+      },
+      {
+        src: "/projects/qubink/5.jpeg",
+        title: "Live Production Order Tracker",
+        desc: "Step-by-step progress tracker informing the client as their order moves from prep, printing, binding, to ready for pickup."
+      }
+    ],
     showcase: {
       heading: "Inside Qubink",
       mainImage: "/works/qubink.png",
@@ -446,6 +473,33 @@ export const PROJECTS = [
       ],
       highlight: { title: "SCALABLE FOUNDATION", text: "Create a digital foundation that can evolve with new products, services, and business requirements." }
     },
+    screenshots: [
+      {
+        src: "/projects/mahil-ro/1.jpeg",
+        title: "Mobile Hero & Pure Water Identity",
+        desc: "Crisp mobile brand presentation establishing immediate trust, purity standards, and domestic & commercial RO solutions."
+      },
+      {
+        src: "/projects/mahil-ro/2.jpeg",
+        title: "Product Range & Water Systems",
+        desc: "Interactive product catalog showcasing multi-stage RO purification plants, UV filters, and dispenser models."
+      },
+      {
+        src: "/projects/mahil-ro/3.jpeg",
+        title: "Multi-Stage Purification Journey",
+        desc: "Step-by-step filtration overview explaining sediment filters, activated carbon blocks, RO membranes, and post-UV purification."
+      },
+      {
+        src: "/projects/mahil-ro/4.jpeg",
+        title: "Maintenance Plans & AMC Support",
+        desc: "Dedicated service section with routine maintenance plans, filter replacements, and fast technician dispatch."
+      },
+      {
+        src: "/projects/mahil-ro/5.jpeg",
+        title: "One-Touch WhatsApp & Call Enquiry",
+        desc: "Mobile-first direct contact triggers allowing customers to request quotes or schedule water testing in seconds."
+      }
+    ],
     showcase: {
       heading: "Inside Mahil RO System",
       mainImage: "/works/mahil-ro.png",
@@ -629,6 +683,33 @@ export const PROJECTS = [
       ],
       highlight: { title: "SCALABLE DIGITAL FOUNDATION", text: "Provide a foundation that can evolve with the business." }
     },
+    screenshots: [
+      {
+        src: "/projects/manikandan-lathe/1.jpeg",
+        title: "Industrial Mobile Experience",
+        desc: "Heavy machinery and workshop presentation highlighting decades of high-precision machining and engineering heritage."
+      },
+      {
+        src: "/projects/manikandan-lathe/2.jpeg",
+        title: "Precision Lathe Turning & Milling",
+        desc: "Comprehensive breakdown of lathe turning, facing, boring, threading, and tight-tolerance custom tool machining."
+      },
+      {
+        src: "/projects/manikandan-lathe/3.jpeg",
+        title: "Machined Component Portfolio",
+        desc: "High-resolution photo showcase of industrial shafts, gears, hydraulic couplings, and specialized automotive components."
+      },
+      {
+        src: "/projects/manikandan-lathe/4.jpeg",
+        title: "Quality Assurance & Calibrations",
+        desc: "Rigorous quality inspection standards with micron-level measurement gauges and metallurgical verification."
+      },
+      {
+        src: "/projects/manikandan-lathe/5.jpeg",
+        title: "Instant RFQ & Workshop Connect",
+        desc: "Quick request-for-quote form and workshop location map for engineering contractors and manufacturing clients."
+      }
+    ],
     showcase: {
       heading: "Inside Manikandan Lathe",
       mainImage: "/works/manikandan-lathe.png",

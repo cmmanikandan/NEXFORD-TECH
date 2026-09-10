@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { PROJECTS } from '../data/content';
+import ProjectMobileShowcase from '../components/ProjectMobileShowcase';
 import {
   ArrowLeft,
   ArrowRight,
@@ -473,113 +474,10 @@ export default function CaseStudy() {
         </div>
       </section>
 
-      {/* 11 — PRODUCT SHOWCASE */}
-      <section className="section bg-white cs-showcase-section">
+      {/* 11 — MOBILE RESPONSIVE SHOWCASE */}
+      <section className="section bg-white cs-showcase-section" style={{ padding: '60px 0 70px' }}>
         <div className="container">
-          <div className="cs-section-header">
-            <div className="cs-eyebrow">11 • INTERFACE SHOWCASE</div>
-            <h2 className="cs-section-title">{project.showcase.heading}</h2>
-            <p className="cs-section-subtitle">
-              High-fidelity editorial view of the production interface and user touchpoints.
-            </p>
-          </div>
-
-          <div className="cs-editorial-showcase">
-            {/* Primary Full Width Hero Frame */}
-            <div className="cs-editorial-hero reveal-on-scroll">
-              <div className="cs-browser-bar">
-                <div className="cs-window-dots">
-                  <span className="dot dot-red" />
-                  <span className="dot dot-amber" />
-                  <span className="dot dot-green" />
-                </div>
-                <div className="cs-browser-address">{domainName}</div>
-                <div className="cs-browser-badge">Production Verified</div>
-              </div>
-              <div className="cs-editorial-img-wrap">
-                <img
-                  src={project.image}
-                  alt={`${project.title} Primary View`}
-                  className="cs-editorial-img"
-                  loading="lazy"
-                />
-              </div>
-              <div className="cs-editorial-hero-caption">
-                <div className="cs-caption-tag">{project.showcase.captions[0]?.tag}</div>
-                <h4 className="cs-caption-title">{project.showcase.captions[0]?.title}</h4>
-                <p className="cs-caption-desc">{project.showcase.captions[0]?.desc}</p>
-              </div>
-            </div>
-
-            {/* Two Side-By-Side Editorial Feature Cards */}
-            <div className="cs-editorial-split reveal-on-scroll">
-              <div className="cs-split-card">
-                <div className="cs-split-preview">
-                  <div className="cs-mini-topbar">
-                    <span className="dot dot-blue" />
-                    <span>{project.showcase.captions[1]?.tag}</span>
-                  </div>
-                  <div className="cs-split-img-box">
-                    <img
-                      src={project.image}
-                      alt={project.showcase.captions[1]?.title}
-                      className="cs-split-img zoom-focus-center"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div className="cs-split-body">
-                  <h4>{project.showcase.captions[1]?.title}</h4>
-                  <p>{project.showcase.captions[1]?.desc}</p>
-                </div>
-              </div>
-
-              <div className="cs-split-card">
-                <div className="cs-split-preview">
-                  <div className="cs-mini-topbar">
-                    <span className="dot dot-blue" />
-                    <span>{project.showcase.captions[2]?.tag}</span>
-                  </div>
-                  <div className="cs-split-img-box">
-                    <img
-                      src={project.image}
-                      alt={project.showcase.captions[2]?.title}
-                      className="cs-split-img zoom-focus-bottom"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div className="cs-split-body">
-                  <h4>{project.showcase.captions[2]?.title}</h4>
-                  <p>{project.showcase.captions[2]?.desc}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Fourth Showcase Card - Operations & Responsive */}
-            {project.showcase.captions[3] && (
-              <div className="cs-editorial-banner reveal-on-scroll">
-                <div className="cs-banner-content">
-                  <span className="cs-caption-tag">{project.showcase.captions[3]?.tag}</span>
-                  <h3 className="cs-banner-title">{project.showcase.captions[3]?.title}</h3>
-                  <p className="cs-banner-desc">{project.showcase.captions[3]?.desc}</p>
-                  <div className="cs-banner-pills">
-                    <span className="cs-banner-pill">Full Viewport Support</span>
-                    <span className="cs-banner-pill">Zero Visual Drift</span>
-                    <span className="cs-banner-pill">Instant State Updates</span>
-                  </div>
-                </div>
-                <div className="cs-banner-visual">
-                  <img
-                    src={project.image}
-                    alt={project.showcase.captions[3]?.title}
-                    className="cs-banner-img"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            )}
-          </div>
+          <ProjectMobileShowcase project={project} />
         </div>
       </section>
 
