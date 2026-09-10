@@ -9,7 +9,7 @@ import {
   Linkedin,
   Twitter,
   Github,
-  Globe
+  Instagram
 } from 'lucide-react';
 import './Footer.css';
 
@@ -35,9 +35,13 @@ export default function Footer() {
                   <Mail size={15} className="footer-contact-icon" />
                   <span>{BRAND.email}</span>
                 </a>
-                <a href={`tel:${BRAND.phone.replace(/[^0-9+]/g, '')}`} className="footer-contact-item">
+                <a href={`tel:${BRAND.phoneRaw}`} className="footer-contact-item">
                   <Phone size={15} className="footer-contact-icon" />
                   <span>{BRAND.phone}</span>
+                </a>
+                <a href={BRAND.instagramUrl} target="_blank" rel="noopener noreferrer" className="footer-contact-item">
+                  <Instagram size={15} className="footer-contact-icon" />
+                  <span>@{BRAND.instagram}</span>
                 </a>
                 <div className="footer-contact-item">
                   <MapPin size={15} className="footer-contact-icon" />
@@ -47,17 +51,17 @@ export default function Footer() {
 
               {/* Social links */}
               <div className="footer-social-row">
+                <a href={BRAND.instagramUrl} target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Instagram">
+                  <Instagram size={16} />
+                </a>
+                <a href={BRAND.whatsappLink} target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="WhatsApp">
+                  <Phone size={16} />
+                </a>
                 <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="LinkedIn">
                   <Linkedin size={16} />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Twitter / X">
-                  <Twitter size={16} />
-                </a>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="GitHub">
                   <Github size={16} />
-                </a>
-                <a href="https://nexfordtech.com" target="_blank" rel="noopener noreferrer" className="footer-social-btn" aria-label="Global Network">
-                  <Globe size={16} />
                 </a>
               </div>
             </div>

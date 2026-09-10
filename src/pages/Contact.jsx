@@ -9,7 +9,8 @@ import {
   Send,
   CheckCircle2,
   ShieldCheck,
-  ArrowRight
+  ArrowRight,
+  Instagram
 } from 'lucide-react';
 import './Contact.css';
 
@@ -85,7 +86,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="channel-label">Email Enquiry</div>
-                    <div className="channel-val">{BRAND.email}</div>
+                    <a href={`mailto:${BRAND.email}`} className="channel-val" style={{ color: 'inherit', textDecoration: 'none' }}>
+                      {BRAND.email}
+                    </a>
                   </div>
                 </div>
 
@@ -94,11 +97,38 @@ export default function Contact() {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <div className="channel-label">Phone Number</div>
-                    <div className="channel-val">{BRAND.phone}</div>
-                    <div style={{ fontSize: '12px', color: '#7E9BB8', marginTop: '2px' }}>
-                      WhatsApp: {BRAND.whatsapp}
+                    <div className="channel-label">Phone & WhatsApp</div>
+                    <a href={`tel:${BRAND.phoneRaw}`} className="channel-val" style={{ color: 'inherit', textDecoration: 'none' }}>
+                      {BRAND.phone}
+                    </a>
+                    <div style={{ marginTop: '3px' }}>
+                      <a
+                        href={BRAND.whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ fontSize: '12px', color: '#18B6A4', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                      >
+                        Chat on WhatsApp ↗
+                      </a>
                     </div>
+                  </div>
+                </div>
+
+                <div className="channel-box">
+                  <div className="channel-icon">
+                    <Instagram size={20} />
+                  </div>
+                  <div>
+                    <div className="channel-label">Instagram</div>
+                    <a
+                      href={BRAND.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="channel-val"
+                      style={{ color: 'var(--color-primary-blue)', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                    >
+                      @{BRAND.instagram} ↗
+                    </a>
                   </div>
                 </div>
 

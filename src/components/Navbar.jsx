@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { BRAND } from '../data/content';
 import BrandLogo from './BrandLogo';
 import './Navbar.css';
 
@@ -141,9 +142,9 @@ export default function Navbar() {
             <ArrowRight size={18} className="arrow-icon" />
           </Link>
           <div className="mobile-drawer-contact">
-            <a href="mailto:info@nexfordtech.com" className="mobile-contact-link">info@nexfordtech.com</a>
+            <a href={`mailto:${BRAND.email}`} className="mobile-contact-link">{BRAND.email}</a>
             <span className="mobile-contact-dot">•</span>
-            <a href="tel:+910000000000" className="mobile-contact-link">+91 00000 00000</a>
+            <a href={`tel:${BRAND.phoneRaw}`} className="mobile-contact-link">{BRAND.phone}</a>
           </div>
         </div>
       </div>

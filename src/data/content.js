@@ -11,10 +11,15 @@ export const BRAND = {
   heroSubtext: "We design and build modern websites, mobile applications, business software, and digital platforms that help businesses operate, connect, and grow.",
   trustHeading: "We design and build digital products that help businesses operate, connect and grow.",
   trustText: "From websites and mobile applications to custom software, business platforms and automation, we turn ideas and business challenges into practical digital solutions.",
-  email: "contact@nexfordtech.com",
-  phone: "+91 00000 00000",
-  whatsapp: "+91 00000 00000",
-  address: "India",
+  email: "nexfordtechnologies@gmail.com",
+  phone: "+91 75400 06268",
+  phoneRaw: "7540006268",
+  whatsapp: "+91 75400 06268",
+  whatsappLink: "https://wa.me/917540006268",
+  instagram: "nexford.in",
+  instagramUrl: "https://instagram.com/nexford.in",
+  address: "Tamil Nadu, India",
+  location: "Tamil Nadu, India",
   copyright: "© 2026 NEXFORD TECHNOLOGIES. All rights reserved."
 };
 
