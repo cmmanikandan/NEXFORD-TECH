@@ -95,34 +95,79 @@
   font-weight: 500;
 }
 
-.google-leave-review-btn {
-  background: #1A73E8;
-  color: #FFFFFF !important;
-  text-decoration: none;
-  border-radius: 9999px;
-  padding: 10px 20px;
-  font-size: 13.5px;
-  font-weight: 600;
-  display: inline-flex;
+/* Scroll Arrow Navigation Buttons (when > 2 reviews) */
+.google-scroll-nav-btns {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.25);
+  gap: 10px;
+}
+
+.google-nav-arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
 }
 
-.google-leave-review-btn:hover {
-  background: #1557B0;
+.google-nav-arrow-btn:hover {
+  background: #1A73E8;
+  border-color: #1A73E8;
+  color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(26, 115, 232, 0.35);
+  box-shadow: 0 6px 14px rgba(26, 115, 232, 0.3);
 }
 
-/* Reviews Grid */
-.google-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+/* Horizontal Scroll Container (when > 2 reviews) */
+.google-cards-scroll-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 4px 2px 14px;
+}
+
+.google-cards-scroll-track {
+  display: flex;
   gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 8px 4px 18px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
+.google-cards-scroll-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.google-cards-scroll-track .google-card {
+  flex: 0 0 380px;
+  max-width: 380px;
+  scroll-snap-align: start;
+}
+
+/* Standard Grid (when <= 2 reviews) */
+.google-cards-grid {
+  width: 100%;
+}
+
+.google-cards-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Card Style */
 .google-card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
@@ -297,12 +342,8 @@
     width: 100%;
   }
 
-  .google-leave-review-btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .google-cards-grid {
-    grid-template-columns: 1fr;
+  .google-cards-scroll-track .google-card {
+    flex: 0 0 85vw;
+    max-width: 85vw;
   }
 }

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Star, CheckCircle2, ThumbsUp } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Star, CheckCircle2, ThumbsUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getStoredReviews, saveStoredReviews } from '../data/reviewsData';
 import './GoogleReviewCards.css';
 
@@ -28,6 +28,8 @@ export const GoogleGIcon = ({ size = 20, style = {} }) => (
 export default function GoogleReviewCards() {
   const [reviews, setReviews] = useState(getStoredReviews);
   const [likedReviews, setLikedReviews] = useState({});
+  const scrollRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const handleUpdate = () => {
@@ -40,6 +42,45 @@ export default function GoogleReviewCards() {
       window.removeEventListener('storage', handleUpdate);
     };
   }, []);
+
+  // Auto-scroll when more than 2 reviews exist
+  useEffect(() => {
+    if (reviews.length <= 2 || isPaused) return;
+
+    const interval = setInterval(() => {
+      if (!scrollRef.current) return;
+      const el = scrollRef.current;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      
+      if (el.scrollLeft >= maxScroll - 10) {
+        // Loop back to start smoothly
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        // Scroll forward by one card width
+        el.scrollBy({ left: 390, behavior: 'smooth' });
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [reviews.length, isPaused]);
+
+  const handleScrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -390, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollRight = () => {
+    if (scrollRef.current) {
+      const el = scrollRef.current;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= maxScroll - 10) {
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        el.scrollBy({ left: 390, behavior: 'smooth' });
+      }
+    }
+  };
 
   const handleLike = (id) => {
     if (likedReviews[id]) return;
@@ -68,9 +109,11 @@ export default function GoogleReviewCards() {
     );
   }
 
+  const hasMultiple = reviews.length > 2;
+
   return (
     <div className="google-reviews-wrapper">
-      {/* Top Google Summary Bar - No Leave Button */}
+      {/* Top Google Summary Bar */}
       <div className="google-summary-bar">
         <div className="google-summary-left">
           <div className="google-logo-box">
@@ -102,90 +145,123 @@ export default function GoogleReviewCards() {
             </div>
           </div>
         </div>
+
+        {/* Scroll Left/Right arrows when more than 2 reviews */}
+        {hasMultiple && (
+          <div className="google-scroll-nav-btns">
+            <button
+              type="button"
+              className="google-nav-arrow-btn"
+              onClick={handleScrollLeft}
+              aria-label="Scroll reviews left"
+              title="Scroll left"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              className="google-nav-arrow-btn"
+              onClick={handleScrollRight}
+              aria-label="Scroll reviews right"
+              title="Scroll right"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Reviews Grid (Shows only genuine submitted reviews) */}
-      <div className="google-cards-grid">
-        {reviews.map((rev) => {
-          const initials = rev.name
-            ? rev.name
-                .split(' ')
-                .map((n) => n[0])
-                .join('')
-                .substring(0, 2)
-                .toUpperCase()
-            : 'CL';
+      {/* Reviews: Scroll track when > 2, Grid when <= 2 */}
+      <div
+        className={hasMultiple ? 'google-cards-scroll-container' : 'google-cards-grid'}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div
+          className={hasMultiple ? 'google-cards-scroll-track' : 'google-cards-grid-inner'}
+          ref={hasMultiple ? scrollRef : null}
+        >
+          {reviews.map((rev) => {
+            const initials = rev.name
+              ? rev.name
+                  .split(' ')
+                  .map((n) => n[0])
+                  .join('')
+                  .substring(0, 2)
+                  .toUpperCase()
+              : 'CL';
 
-          return (
-            <div key={rev.id} className="google-card">
-              {/* Header: User Info & Google G Badge */}
-              <div className="google-card-top">
-                <div className="google-user-meta">
-                  <div
-                    className="google-user-avatar"
-                    style={{ backgroundColor: rev.avatarColor || '#4285F4' }}
+            return (
+              <div key={rev.id} className="google-card">
+                {/* Header: User Info & Google G Badge */}
+                <div className="google-card-top">
+                  <div className="google-user-meta">
+                    <div
+                      className="google-user-avatar"
+                      style={{ backgroundColor: rev.avatarColor || '#4285F4' }}
+                    >
+                      {initials}
+                    </div>
+                    <div>
+                      <h4 className="google-user-name">{rev.name}</h4>
+                      <p className="google-user-sub">
+                        {rev.role && <span>{rev.role}</span>}
+                        {rev.reviewsCount && (
+                          <>
+                            <span className="google-dot">•</span>
+                            <span>{rev.reviewsCount}</span>
+                          </>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="google-card-g-badge" title="Google Verified Client">
+                    <GoogleGIcon size={16} />
+                  </div>
+                </div>
+
+                {/* Stars, Date & Service */}
+                <div className="google-card-stars-row">
+                  <div className="google-card-stars">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={14}
+                        className={i < rev.rating ? 'star-gold' : 'star-muted'}
+                      />
+                    ))}
+                  </div>
+                  <span className="google-card-date">{rev.date}</span>
+
+                  {rev.service && (
+                    <span className="google-card-service-chip">{rev.service}</span>
+                  )}
+                </div>
+
+                {/* Review Text */}
+                <p className="google-card-text">{rev.comment}</p>
+
+                {/* Card Footer: Helpful Button & Verified Badge */}
+                <div className="google-card-bottom">
+                  <button
+                    type="button"
+                    className={`google-helpful-action ${likedReviews[rev.id] ? 'active' : ''}`}
+                    onClick={() => handleLike(rev.id)}
                   >
-                    {initials}
-                  </div>
-                  <div>
-                    <h4 className="google-user-name">{rev.name}</h4>
-                    <p className="google-user-sub">
-                      {rev.role && <span>{rev.role}</span>}
-                      {rev.reviewsCount && (
-                        <>
-                          <span className="google-dot">•</span>
-                          <span>{rev.reviewsCount}</span>
-                        </>
-                      )}
-                    </p>
+                    <ThumbsUp size={13} />
+                    <span>Helpful {rev.likes > 0 && `(${rev.likes})`}</span>
+                  </button>
+
+                  <div className="google-card-verified-tag">
+                    <CheckCircle2 size={12} color="#16A34A" />
+                    <span>Verified Client</span>
                   </div>
                 </div>
-
-                <div className="google-card-g-badge" title="Google Verified Client">
-                  <GoogleGIcon size={16} />
-                </div>
               </div>
-
-              {/* Stars, Date & Service */}
-              <div className="google-card-stars-row">
-                <div className="google-card-stars">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={14}
-                      className={i < rev.rating ? 'star-gold' : 'star-muted'}
-                    />
-                  ))}
-                </div>
-                <span className="google-card-date">{rev.date}</span>
-
-                {rev.service && (
-                  <span className="google-card-service-chip">{rev.service}</span>
-                )}
-              </div>
-
-              {/* Review Text */}
-              <p className="google-card-text">{rev.comment}</p>
-
-              {/* Card Footer: Helpful Button & Verified Badge */}
-              <div className="google-card-bottom">
-                <button
-                  type="button"
-                  className={`google-helpful-action ${likedReviews[rev.id] ? 'active' : ''}`}
-                  onClick={() => handleLike(rev.id)}
-                >
-                  <ThumbsUp size={13} />
-                  <span>Helpful {rev.likes > 0 && `(${rev.likes})`}</span>
-                </button>
-
-                <div className="google-card-verified-tag">
-                  <CheckCircle2 size={12} color="#16A34A" />
-                  <span>Verified Client</span>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
