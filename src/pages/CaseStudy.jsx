@@ -477,6 +477,13 @@ export default function CaseStudy() {
       {/* 11 — MOBILE RESPONSIVE SHOWCASE */}
       <section className="section bg-white cs-showcase-section" style={{ padding: '60px 0 70px' }}>
         <div className="container">
+          <div className="cs-section-header">
+            <div className="cs-eyebrow">11 • INTERFACE & PRODUCTION SCREENS</div>
+            <h2 className="cs-section-title">Application Screen Showcase</h2>
+            <p className="cs-section-subtitle">
+              Interactive preview of key application screens engineered for {project.title}. Click any screen to view in full resolution.
+            </p>
+          </div>
           <ProjectMobileShowcase project={project} />
         </div>
       </section>
