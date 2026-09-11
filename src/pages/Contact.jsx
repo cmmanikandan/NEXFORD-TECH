@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BRAND } from '../data/content';
 import SectionHeader from '../components/SectionHeader';
+import FeedbackForm from '../components/FeedbackForm';
 import {
   Mail,
   Phone,
@@ -380,6 +381,9 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* Client Feedback Form (Google Review Style Post Form) */}
+      <FeedbackForm />
     </div>
   );
 }

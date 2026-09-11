@@ -29,6 +29,7 @@ import SectionHeader from '../components/SectionHeader';
 import ServiceCard from '../components/ServiceCard';
 import ProjectCard from '../components/ProjectCard';
 import ContactCTA from '../components/ContactCTA';
+import GoogleReviewCards from '../components/GoogleReviewCards';
 import useScrollReveal from '../hooks/useScrollReveal';
 import './Home.css';
 
@@ -349,77 +350,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. ABOUT PREVIEW SECTION */}
-      <section className="section bg-light" id="about">
-        <div className="container">
-          <div className="about-preview-grid reveal-on-scroll">
-            <div>
-              <div className="eyebrow">
-                <span>ABOUT NEXFORD</span>
-              </div>
-              <h2 style={{ marginBottom: '20px' }}>
-                Technology Built Around Your <span className="gradient-text">Business.</span>
-              </h2>
-              <p className="text-lead" style={{ marginBottom: '16px' }}>
-                NEXFORD TECHNOLOGIES combines software development, design, and business thinking to transform ideas into meaningful digital products.
-              </p>
-              <p style={{ marginBottom: '28px' }}>
-                We work with businesses and entrepreneurs to create professional digital experiences, practical business systems, and custom technology solutions.
-              </p>
-              <Link to="/about" className="btn btn-secondary">
-                <span>Learn More About Our Team</span>
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            {/* Premium Product Development Visual */}
-            <div className="office-tech-visual card-hover">
-              <div style={{ fontSize: '12px', color: '#18A9F5', fontWeight: 700, letterSpacing: '0.08em', marginBottom: '16px' }}>
-                ENGINEERING ENVIRONMENT
-              </div>
-              <h3 style={{ color: '#FFFFFF', fontSize: '22px', marginBottom: '12px' }}>
-                Architecture • Code Quality • Security
-              </h3>
-              <p style={{ color: '#9BB4CE', fontSize: '14px', lineHeight: 1.6, marginBottom: '20px' }}>
-                Every solution is architected for strict modularity, automated test coverage, zero-downtime rollouts, and SOC-ready data access control.
-              </p>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-                <div style={{ background: '#0D223B', padding: '14px', borderRadius: '8px', border: '1px solid #1A375B' }}>
-                  <div style={{ fontSize: '11px', color: '#7E9BB8' }}>Component Isolation</div>
-                  <div style={{ fontSize: '14px', fontWeight: 700, color: '#FFFFFF', marginTop: '4px' }}>Clean Architecture</div>
-                </div>
-                <div style={{ background: '#0D223B', padding: '14px', borderRadius: '8px', border: '1px solid #1A375B' }}>
-                  <div style={{ fontSize: '11px', color: '#7E9BB8' }}>Deployment Cadence</div>
-                  <div style={{ fontSize: '14px', fontWeight: 700, color: '#18B6A4', marginTop: '4px' }}>CI/CD Pipelines</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
-      {/* 11. TESTIMONIAL SECTION (Real Structure, No Fake Reviews) */}
+      {/* 11. TESTIMONIAL SECTION (Google Review Style Feedback Cards) */}
       <section className="section bg-light" id="testimonials">
         <div className="container reveal-on-scroll">
           <SectionHeader
             eyebrow="CLIENT VOICES"
             title="What Our Clients"
             highlight="Say."
-            description="Direct feedback from partners who trust NEXFORD to build and maintain their critical technology."
+            description="Direct feedback and verified reviews from partners who trust NEXFORD to build and maintain their critical technology."
             center={true}
           />
 
-          <div className="testimonial-box">
-            <MessageSquare size={36} color="var(--color-primary-blue)" style={{ margin: '0 auto 16px' }} />
-            <h3 style={{ fontSize: '20px', color: 'var(--color-dark-navy)', marginBottom: '12px' }}>
-              Client testimonials will appear here.
-            </h3>
-            <p style={{ maxWidth: '540px', margin: '0 auto', fontSize: '15px' }}>
-              We are actively rolling out our client feedback portal as we deliver milestones across our enterprise deployments and bespoke applications.
-            </p>
-          </div>
+          <GoogleReviewCards />
         </div>
       </section>
 
